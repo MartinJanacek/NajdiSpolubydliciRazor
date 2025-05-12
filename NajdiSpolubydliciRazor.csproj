@@ -26,10 +26,12 @@
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\users_images\" />
+  </ItemGroup>
 	<ItemGroup>
 		<Content Update="wwwroot\users_images\**">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
-
 </Project>
