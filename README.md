@@ -4,5 +4,5 @@ Prototyp stránky pro inzerci nabídek/poptávek spolybydlení.
 
 Chybí:
   - Rate limiter
-  - Podmínky
+  - Podmínky užívání
   - Přídání více okresů pro jeden inzerát
