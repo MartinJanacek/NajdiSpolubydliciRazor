@@ -1,0 +1,133 @@
+﻿@font-face {
+    font-family: 'NotoSans';
+    src: url(../fonts/NotoSans-VariableFont_wdth,wght.ttf);
+}
+
+$white-text: rgb(226, 226, 226);
+$dark-green: rgb(69, 98, 71);
+$light-green: rgb(120, 180, 140);
+$red: rgb(255, 0, 0);
+$black: rgb(0, 0, 0);
+
+article {
+    all: unset;
+    display: grid;
+    align-content: center;
+    margin: 5vh auto;
+    width: 50vw;
+    max-width: 100%;
+    padding: 3.5vh;
+    font-family: NotoSans, Calibri;
+    background-color: $white-text;
+
+    p {
+        display: block;
+        font-size: calc(4px + 0.5vw + 0.5vh);
+        text-align: justify;
+        text-align-last: left;
+        margin: 5vh auto 2.5vh auto;
+    }
+
+    .labels-container {
+        display: flex;
+        flex-direction: column;
+        margin: 2.5vh auto;
+
+        .label-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr;
+            font-size: calc(4px + 0.6vw + 0.6vh);
+            font-weight: 500;
+            color: $black;
+            border-bottom: dashed 0.4vh $black;
+            padding: 0.6vh 0 0.6vh 1vw;
+
+            &:nth-child(odd) {
+                color: $black;
+                border-bottom: dashed 0.4vh $dark-green;
+            }
+
+            div {
+                text-align: left;
+                padding-right: 1vw;
+            }
+        }
+    }
+
+    form {
+        all: unset;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        min-width: fit-content;
+        padding: 3.5vh;
+
+        fieldset {
+            all: unset;
+            font-family: NotoSans, Calibri;
+            width: 100%;
+            background-color: $white-text;
+
+            .prefilled {
+                display: none;
+            }
+
+            #forminputlayout {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 1fr;
+                grid-auto-columns: 1fr;
+                padding: 0;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                padding: 1vh 1vw;
+                font-size: calc(6px + 0.6vw + 0.4vh);
+                font-weight: 500;
+
+
+                input, select, textarea {
+                    margin: 0.5vh 0;
+                    padding: 0.5vh 4px;
+                    font-size: inherit;
+                    border-width: 0;
+                    border-bottom: calc(2px + 0.1vh) solid transparent;
+
+                    &::file-selector-button {
+                        background-color: $white-text;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+
+                input:focus, select:focus, textarea:focus {
+                    outline: none;
+                    border-bottom: calc(2px + 0.1vh) solid black;
+                }
+
+                span {
+                    font-size: calc(4px + 0.4vw + 0.4vh);
+                    padding: 0 0.15em;
+                    color: $red;
+                }
+            }
+
+            button {
+                all: unset;
+                cursor: pointer;
+                display: grid;
+                margin: 2vh auto;
+                font-size: calc(6px + 0.8vw + 0.4vh);
+                font-weight: 500;
+                color: $black;
+                background-color: $white-text;
+                border-bottom: 2px solid $black;
+                padding: 1vh 1vw;
+            }
+        }
+    }
+}

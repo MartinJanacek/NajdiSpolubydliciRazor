@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/index.css",
+    "inputFile": "wwwroot/css/index.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/layout.css",
+    "inputFile": "wwwroot/css/layout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/form.css",
+    "inputFile": "wwwroot/css/form.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/carousel.css",
+    "inputFile": "wwwroot/css/carousel.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/advertising.css",
+    "inputFile": "wwwroot/css/advertising.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/listingofadvertisments.css",
+    "inputFile": "wwwroot/css/listingofadvertisments.scss"
+  }
+]

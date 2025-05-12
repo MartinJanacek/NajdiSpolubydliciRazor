@@ -1,0 +1,52 @@
+﻿@page
+@using NajdiSpolubydliciRazor.Enums
+@model NajdiSpolubydliciRazor.Pages.Offer.OffersModel
+@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/listingofadvertisments.min.css" />
+</head>
+
+<div class="container">
+    <form class="search">
+        <div>
+            <label>Okres:</label>
+            <select asp-for="District" asp-items="Html.GetEnumSelectList<District>()"></select>
+            <span asp-validation-for="District"></span>
+        </div>
+        <div>
+            <label>Cena do:</label>
+            <input asp-for="MaxPrice" />
+            <span asp-validation-for="MaxPrice"></span>
+        </div>
+        <div>
+            <label>Nejpozději k nastěhování</label>
+            <input asp-for="MoveInDateBefore" onblur="this.value = removeSpaces(this.value);" />
+            <span asp-validation-for="MoveInDateBefore"></span>
+        </div>
+        <div></div>
+        <button type="submit">Hledat</button>
+        <div></div>
+    </form>
+    <div class="listing">
+        @if (Model.Offers is null || Model.Offers.Count == 0) 
+        {
+            <h3 class="notfound">Žádné nabídky nenalezeny</h3>
+        }
+        else
+        {
+            foreach (var offer in Model.Offers)
+            {
+                <a href="~/Offer/Offer/@offer.Id">
+                    <img src="~/users_images/@offer.ImagesDirectoryId/thumbnail.webp">
+                    <div>
+                        <p>@offer.RentalPrice Kč</p>
+                        <p>@offer.Text</p>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+</div>
+

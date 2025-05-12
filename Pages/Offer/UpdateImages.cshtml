@@ -1,0 +1,41 @@
+﻿@page
+@model NajdiSpolubydliciRazor.Pages.Offer.UpdateimagesAndSaveChangesModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Přidejte fotografie (png, jpg, jpeg)</legend>
+        <div style="display: none" id="imageinfo"></div>
+        <div>
+            <label>Profilová fotografie - Změnit?<span class="required">*</span></label>
+            <input type="file" asp-for="ProfilePhoto" onchange="read_URL(this)" class="image-input" accept="image/jpg, image/jpeg, image/png" />
+            <img alt="your image" src="../../users_images/@Model.ImagesDirectory/0.webp" />
+            <span asp-validation-for="ProfilePhoto"></span>
+        </div>
+        <h3 style="font-size: calc(4px + 0.6vw + 0.4vh);">Ostatní fotografie:</h3>
+        <div id="forminputlayout">
+            @for (int i = 0; i < Model.ImageCount; i++)
+            {
+                <div>
+                    <label data-otherimageslabel>@((i + 1).ToString()). Změnit?</label>
+                    <input type="file" asp-for="Photos" class="image-input" data-alreadyInputed="true" onchange="update_image(this)" data-imagenumber=@((i + 1).ToString()) accept="image/jpg, image/jpeg, image/png" />
+                    <img alt="your image" src="../../users_images/@Model.ImagesDirectory/@((i + 1).ToString()).webp" />
+                    <button type="button" onclick="remove_existingimage_container(this)" class="remove" style="display: block !important" data-imagenumber=@((i + 1).ToString())>Odstranit</button>
+                    <span asp-validation-for="Photos"></span>
+                </div>
+            }
+            <div>
+                <label data-otherimageslabel>Přidat?</label>
+                <input type="file" name="Photos" id="Photos" class="image-input" data-alreadyInputed="" onchange="read_URL(this)" accept="image/jpg, image/jpeg, image/png" />
+                <img alt="your image" src="" />
+                <button type="button" onclick="remove_image_container(this)" class="remove">Odstranit</button>
+                <span asp-validation-for="Photos"></span>
+            </div>
+        </div>
+        <button type="submit">ODESLAT</button>
+    </fieldset>
+</form>

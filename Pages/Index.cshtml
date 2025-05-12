@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "";
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/index.min.css" />
+</head>
+<body>
+    <nav>
+        <a asp-page="Offer/OffersSearch">Nabídky</a>
+        <a asp-page="Demand/DemandsSearch">Poptávky</a>
+        <a asp-page="CreateAdvertisement">Vytvořit inzerát</a>
+        <a asp-page="UpdateAdvertisement">Upravit inzerát</a>
+        <a asp-page="DeleteAdvertisement">Smazat inzerát</a>
+        <a asp-page="Privacy">Podmínky</a>
+    </nav>
+</body>
+</html>
+

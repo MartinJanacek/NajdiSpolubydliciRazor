@@ -1,0 +1,42 @@
+﻿@page
+@using NajdiSpolubydliciRazor.Enums
+@model NajdiSpolubydliciRazor.Pages.Demand.UpdateModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form method="post">
+    <fieldset>
+        <legend>Upravit nabídku</legend>
+        <div id="forminputlayout">
+            <div>
+                <label>E-mail:<span class="required">nelze změnit</span></label>
+                <input asp-for="DemandForm.Email" readonly/>
+                <span asp-validation-for="DemandForm.Email"></span>
+            </div>
+            <div>
+                <label>Telefonní číslo:</label>
+                <input asp-for="DemandForm.PhoneNumber" onblur="this.value = removeSpaces(this.value);" />
+                <span asp-validation-for="DemandForm.PhoneNumber"></span>
+            </div>
+            <div>
+                <label>Okres:<span class="required">*</span></label>
+                <select asp-for="DemandForm.District" asp-items="Html.GetEnumSelectList<District>()"></select>
+                <span asp-validation-for="DemandForm.District"></span>
+            </div>
+            <div>
+                <label>Lokace:</label>
+                <input asp-for="DemandForm.Location" />
+                <span asp-validation-for="DemandForm.Location"></span>
+            </div>
+        </div>
+        <div>
+            <label>Popis:<span class="required">*</span></label>
+            <textarea asp-for="DemandForm.Text" oninput="auto_grow(this)"></textarea>
+            <span asp-validation-for="DemandForm.Text"></span>
+        </div>
+        <button type="submit">ODESLAT</button>
+    </fieldset>
+</form>

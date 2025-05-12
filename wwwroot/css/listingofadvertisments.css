@@ -1,0 +1,103 @@
+﻿@font-face {
+  font-family: "NotoSans";
+  src: url(../fonts/NotoSans-VariableFont_wdth,wght.ttf);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh auto;
+  width: 50vw;
+  max-width: 100%;
+  padding: 3.5vh;
+  font-family: NotoSans, Calibri;
+  background-color: rgb(226, 226, 226);
+}
+.container form {
+  all: unset;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  margin: 1vh auto 3vh auto;
+  background-color: rgb(226, 226, 226);
+}
+.container form div {
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 1vw;
+  font-size: calc(4px + 0.6vw + 0.4vh);
+  font-weight: 500;
+}
+.container form div input, .container form div select, .container form div textarea {
+  margin: 0.5vh 0;
+  padding: 0.5vh 4px;
+  font-size: inherit;
+  border-width: 0;
+  border-bottom: calc(2px + 0.1vh) solid transparent;
+}
+.container form div input[type=date] {
+  margin: 0.5vh 0;
+  padding: 0.35vh 4px;
+  font-size: inherit;
+  border-width: 0;
+  border-bottom: calc(2px + 0.1vh) solid transparent;
+}
+.container form div select {
+  padding: 0.5vh 0;
+}
+.container form div input:focus, .container form div select:focus, .container form div textarea:focus {
+  outline: none;
+  border-bottom: calc(2px + 0.1vh) solid black;
+}
+.container form button {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  margin: 0 auto;
+  font-size: calc(6px + 0.8vw + 0.4vh);
+  font-weight: 500;
+  color: black;
+  border-bottom: 3px solid rgb(69, 98, 71);
+  background-color: rgb(226, 226, 226);
+  padding: 1vh 1vw;
+}
+.container .listing {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4vh;
+}
+.container .listing a {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  max-width: 40vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+}
+.container .listing a img {
+  object-fit: cover;
+  height: 25vh;
+  max-width: 40vw;
+  border-bottom: 0.5vh solid rgb(69, 98, 71);
+}
+.container .listing a div p {
+  display: block;
+  padding: 0 1.5vw;
+  font-size: calc(6px + 0.4vw + 0.4vh);
+  font-weight: 500;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-aspect-ratio: 15/9) {
+  .listing {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -1,0 +1,30 @@
+﻿<html lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NajdiSpolubydlící</title>
+    <link rel="stylesheet" href="~/css/layout.min.css"/>
+</head>
+<body>
+    <nav>
+        <a href="~/Index" style="border: none;"><h1><span style="color:rgb(0, 91, 12);">Najdi</span>Spolubydlící</h1></a>
+        <a asp-page="/Offer/OffersSearch">Nabídky</a>
+        <a asp-page="/Demand/DemandsSearch">Poptávky</a>
+        <a asp-page="/CreateAdvertisement">Vytvořit inzerát</a>
+        <a asp-page="/UpdateAdvertisement">Upravit inzerát</a>
+        <a asp-page="/DeleteAdvertisement">Smazat inzerát</a>
+        <a asp-page="/Privacy">Podmínky</a>
+
+        <footer>©2025 - Najdi Spolubydlící</footer>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

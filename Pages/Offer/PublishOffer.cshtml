@@ -1,0 +1,30 @@
+﻿@page
+@model NajdiSpolubydliciRazor.Pages.Offer.VerifyEmailModel
+@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Přidejte fotografie (png, jpg, jpeg)</legend>
+        <div>
+            <label>Profilová fotografie:<span class="required">*</span></label>
+            <input type="file" asp-for="ProfilePhoto" onchange="read_URL(this)" class="image-input" accept="image/jpg, image/jpeg, image/png" />
+            <img alt="your image" src=""/>
+            <span asp-validation-for="ProfilePhoto"></span>
+        </div>
+        <h3 style="font-size: calc(4px + 0.6vw + 0.4vh);">Ostatní fotografie:</h3>
+        <div id="forminputlayout">
+            <div>
+                <label data-otherimageslabel>1.</label>
+                <input type="file" asp-for="Photos" class="image-input" data-alreadyInputed="" onchange="read_URL(this)" accept="image/jpeg, image/jpg, image/png" />
+                <img alt="your image" src="" />
+                <span asp-validation-for="Photos"></span>
+            </div>
+        </div>
+        <button type="submit">ODESLAT</button>
+    </fieldset>
+</form>

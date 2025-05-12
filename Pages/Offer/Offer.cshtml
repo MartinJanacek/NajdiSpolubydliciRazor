@@ -1,0 +1,112 @@
+﻿@page "{id}"
+@using NajdiSpolubydliciRazor.Enums
+@model NajdiSpolubydliciRazor.Pages.Offer.OfferModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/advertising.min.css" />
+    <link rel="stylesheet" href="~/css/carousel.min.css" />
+</head>
+
+
+<article>
+    <div class="slideshow-container">
+
+        @for (int i = 0; i <= Model.ImageCount; i++)
+        {
+            @Html.Raw(string.Format(
+                @"<div class=""mySlides fade"">" +
+                     @$"<img src=""../../users_images/{Model.ImagesDirectory}/{i}.webp"" style=""width: 100 % "">" +
+                @"</div>"
+            ));
+        }
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <p>
+        @Model.OfferBase?.Text
+    </p>
+    <div class="labels-container">
+        <div class="label-container">
+            <div>Okres:</div>
+            <div>@Model.OfferBase?.District</div>
+        </div>
+        @if (Model.OfferBase?.Location is not null)
+        {
+            <div class="label-container">
+                <div>Lokace:</div>
+                <div>@Model.OfferBase?.Location</div>
+            </div>
+        }
+        <div class="label-container">
+            <div>Měsíční cena:</div>
+            <div>@Model.OfferBase?.RentalPrice</div>
+        </div>
+        <div class="label-container">
+            <div>Typ jednotky:</div>
+            <div>@Model.OfferBase?.Type.GetDisplayName()</div>
+        </div>
+        <div class="label-container">
+            <div>Celkový počet pokojů:</div>
+            <div>@Model.OfferBase?.NumberOfRooms</div>
+        </div>
+        <div class="label-container">
+            <div>Celková plocha:</div>
+            <div>@Model.OfferBase?.TotalArea</div>
+        </div>
+        <div class="label-container">
+            <div>Plocha pro spolubydlícího:</div>
+            <div>@Model.OfferBase?.AreaForTenant</div>
+        </div>
+        <div class="label-container">
+            <div>Vybavený:</div>
+            <div>@Model.OfferBase?.Furnished.GetDisplayName()</div>
+        </div>
+        <div class="label-container">
+            <div>Internet:</div>
+            <div>@Model.OfferBase?.Internet.GetDisplayName()</div>
+        </div>
+        <div class="label-container">
+            <div>Wifi:</div>
+            <div>@Model.OfferBase?.Wifi.GetDisplayName()</div>
+        </div>
+        <div class="label-container">
+            <div>Jsou v jednotce zvířata:</div>
+            <div>@Model.OfferBase?.AreAnimalsInPlace.GetDisplayName()</div>
+        </div>
+        <div class="label-container">
+            <div>Vlastníci zvířat povoleni:</div>
+            <div>@Model.OfferBase?.AnimalOwners.GetDisplayName()</div>
+        </div>
+        <div class="label-container">
+            <div>Patro:</div>
+            <div>@Model.OfferBase?.Floor</div>
+        </div>
+        <div class="label-container">
+            <div>Nejdříve k nastěhování:</div>
+            <div>@Model.OfferBase?.MoveInDate.ToShortDateString()</div>
+        </div>
+        <div class="label-container">
+            <div>Vytvořeno:</div>
+            <div>@Model.CreationDate?.ToShortDateString()</div>
+        </div>
+    </div>
+
+    <form method="post">
+    <fieldset>
+        <div style="display:none">
+            <label>Identifikace:</label>
+            <input asp-for="Id" value="@Model.Id"/>
+            <span asp-validation-for="Id"></span>
+        </div>
+        <div>
+            <label>Poslat kontakt na email:<span class="required">*</span></label>
+            <input asp-for="ContactReceiverEmail" />
+                <span asp-validation-for="ContactReceiverEmail"></span>
+        </div>
+        <button type="submit">ODESLAT</button>
+    </fieldset>
+    </form>
+
+</article>
+<script src="~/js/carousel.js"></script>

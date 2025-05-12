@@ -1,0 +1,25 @@
+﻿@page
+@using NajdiSpolubydliciRazor.Enums
+@model NajdiSpolubydliciRazor.Pages.UpdateAdvertismentModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form method="post">
+    <fieldset>
+        <legend>Upravit inzerát</legend>
+        <div>
+            <label>Email:</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label>Typ:</label>
+            <select asp-for="Type" asp-items="Html.GetEnumSelectList<TypeOfAdvertising>()"></select>
+            <span asp-validation-for="Type"></span>
+        </div>
+        <button type="submit">POKRAČOVAT</button>
+    </fieldset>
+</form>

@@ -1,0 +1,34 @@
+﻿@page
+@model NajdiSpolubydliciRazor.Pages.ContactReceiver.ContactModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form>
+    <fieldset>
+        <legend>Kontakt</legend>
+        <div>
+            @if (string.IsNullOrEmpty(Model.Error))
+            {
+                <h3>
+                    Email: @Model.Email
+                </h3>
+                if (@Model.PhoneNumber is not null)
+                {
+                    <h3>
+                        Tel. číslo: @Model.PhoneNumber
+                    </h3>
+                }
+            }
+            else
+            {
+                <h3>
+                    @Model.Error
+                </h3>
+            }
+        </div>
+    </fieldset>
+</form>
+

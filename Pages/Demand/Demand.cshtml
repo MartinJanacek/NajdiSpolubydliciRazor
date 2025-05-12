@@ -1,0 +1,43 @@
+﻿@page "{id}"
+@using NajdiSpolubydliciRazor.Enums
+@model NajdiSpolubydliciRazor.Pages.Demand.DemandModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/advertising.min.css" />
+</head>
+
+<article>
+    <p>
+        @Model.DemandBase?.Text
+    </p>
+    <div class="labels-container">
+        <div class="label-container">
+            <div>Okres:</div>
+            <div>@Model.DemandBase?.District.GetDisplayName()</div>
+        </div>
+        @if (Model.DemandBase?.Location is not null)
+        {
+            <div class="label-container">
+                <div>Lokace:</div>
+                <div>@Model.DemandBase?.Location</div>
+            </div>
+        }
+    </div>
+
+    <form method="post">
+        <fieldset>
+            <div style="display:none">
+                <label>Identifikace:</label>
+                <input asp-for="Id" value="@Model.Id" />
+                <span asp-validation-for="Id"></span>
+            </div>
+            <div>
+                <label>Poslat kontakt na email:<span class="required">*</span></label>
+                <input asp-for="ContactReceiverEmail" />
+                <span asp-validation-for="ContactReceiverEmail"></span>
+            </div>
+            <button type="submit">ODESLAT</button>
+        </fieldset>
+    </form>
+</article>

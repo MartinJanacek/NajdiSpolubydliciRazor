@@ -1,0 +1,35 @@
+﻿@page
+@model NajdiSpolubydliciRazor.Pages.Demand.VerifyEmailModel
+@{
+    ViewData["Title"] = "Pokračujte do emailu";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form method="post">
+    <fieldset>
+        <legend>Ověření</legend>
+        <div>
+            <h3>Pokračujte do svého zadaného emailu</h3>
+            <h3>Kód je aktivní 15 minut</h3>
+        </div>
+        <div style="display:none">
+            <label>Identifikace:</label>
+            <input asp-for="Id" value="@Model.Id" />
+            <span asp-validation-for="Id"></span>
+        </div>
+        <div style="display:none">
+            <label>Poté:</label>
+            <input asp-for="AfterVerification" value="@Model.AfterVerification" />
+            <span asp-validation-for="AfterVerification"></span>
+        </div>
+        <div>
+            <label>Kód z emailu:<span class="required">*</span></label>
+            <input asp-for="OneTimeCode" />
+            <span asp-validation-for="OneTimeCode"></span>
+        </div>
+        <button type="submit">ODESLAT</button>
+    </fieldset>
+</form>

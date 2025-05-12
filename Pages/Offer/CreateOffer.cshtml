@@ -1,0 +1,106 @@
+﻿@page
+@using NajdiSpolubydliciRazor.Enums
+@model NajdiSpolubydliciRazor.Pages.Offer.CreateOfferModel
+@{
+    ViewData["Title"] = "Vytvořit nabídku";
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.min.css" />
+</head>
+
+<form method="post">
+    <fieldset>
+        <legend>Vytvořit nabídku</legend>
+        <div id="forminputlayout">
+            <div>
+                <label>E-mail:<span class="required">*</span></label>
+                <input asp-for="OfferForm.Email" />
+                <span asp-validation-for="OfferForm.Email"></span>
+            </div>
+            <div>
+                <label>Telefonní číslo:</label>
+                <input asp-for="OfferForm.PhoneNumber" onblur="this.value = removeSpaces(this.value);"/>
+                <span asp-validation-for="OfferForm.PhoneNumber"></span>
+            </div>
+            <div>
+                <label>Okres:<span class="required">*</span></label>
+                <select asp-for="OfferForm.District" asp-items="Html.GetEnumSelectList<District>()"></select>
+                <span asp-validation-for="OfferForm.District"></span>
+            </div>
+            <div>
+                <label>Lokace:</label>
+                <input asp-for="OfferForm.Location" />
+                <span asp-validation-for="OfferForm.Location"></span>
+            </div>
+            <div>
+                <label>Měsíční cena:<span class="required">*</span></label>
+                <input asp-for="OfferForm.RentalPrice" />
+                <span asp-validation-for="OfferForm.RentalPrice"></span>
+            </div>
+            <div>
+                <label>Typ jednotky:</label>
+                <select asp-for="OfferForm.Type" asp-items="Html.GetEnumSelectList<BuildingType>()"></select>
+                <span asp-validation-for="OfferForm.Type"></span>
+            </div>
+            <div>
+                <label>Celkový počet pokojů:<span class="required">*</span></label>
+                <input asp-for="OfferForm.NumberOfRooms" />
+                <span asp-validation-for="OfferForm.NumberOfRooms"></span>
+            </div>
+            <div>
+                <label>Celková plocha:<span class="required">*</span></label>
+                <input asp-for="OfferForm.TotalArea" />
+                <span asp-validation-for="OfferForm.TotalArea"></span>
+            </div>
+            <div>
+                <label>Plocha pro spolubydlícího:<span class="required">*</span></label>
+                <input asp-for="OfferForm.AreaForTenant" />
+                <span asp-validation-for="OfferForm.AreaForTenant"></span>
+            </div>
+            <div>
+                <label>Vybavený:</label>
+                <select asp-for="OfferForm.Furnished" asp-items="Html.GetEnumSelectList<Choice>()"></select>
+                <span asp-validation-for="OfferForm.Furnished"></span>
+            </div>
+            <div>
+                <label>Internet:</label>
+                <select asp-for="OfferForm.Internet" asp-items="Html.GetEnumSelectList<Choice>()"></select>
+                <span asp-validation-for="OfferForm.Internet"></span>
+            </div>
+            <div>
+                <label>Wifi:</label>
+                <select asp-for="OfferForm.Wifi" asp-items="Html.GetEnumSelectList<Choice>()"></select>
+                <span asp-validation-for="OfferForm.Wifi"></span>
+            </div>
+            <div>
+                <label>Jsou v jednotce zvířata:</label>
+                <select asp-for="OfferForm.AreAnimalsInPlace" asp-items="Html.GetEnumSelectList<Choice>()"></select>
+                <span asp-validation-for="OfferForm.AreAnimalsInPlace"></span>
+            </div>
+            <div>
+                <label>Vlastníci zvířat povoleni:</label>
+                <select asp-for="OfferForm.AnimalOwners" asp-items="Html.GetEnumSelectList<AnimalOwnersChoice>()"></select>
+                <span asp-validation-for="OfferForm.AnimalOwners"></span>
+            </div>
+            <div>
+                <label>Patro:<span class="required">*</span></label>
+                <input asp-for="OfferForm.Floor" />
+                <span asp-validation-for="OfferForm.Floor"></span>
+            </div>
+            <div>
+                <label>Nejdříve k nastěhování:<span class="required">*</span></label>
+                <input asp-for="OfferForm.MoveInDate" type="date" />
+                <span asp-validation-for="OfferForm.MoveInDate"></span>
+            </div>
+        </div>
+        <div>
+            <label>Popis:<span class="required">*</span></label>
+            <textarea asp-for="OfferForm.Text" oninput="auto_grow(this)"></textarea>
+            <span asp-validation-for="OfferForm.Text"></span>
+        </div>
+        <button type="submit">ODESLAT</button>
+        <div>
+            <p>*Fotografie budete moct přidat po ověření emailu</p>
+        </div>
+    </fieldset>
+</form>
