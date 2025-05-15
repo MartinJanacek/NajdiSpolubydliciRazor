@@ -20,6 +20,11 @@ body {
     background-attachment: fixed;
     backdrop-filter: blur(5px);
     display: flex;
+    min-height: fit-content;
+}
+
+.side-menu {
+    display: none;
 }
 
 nav {
@@ -71,11 +76,157 @@ nav {
         position: absolute;
         width: 100%;
         text-align: center;
-        font-size: calc(4px + 0.5vw + 0.2vh);
+        font-size: calc(6px + 0.5vw + 0.2vh);
         padding: calc(1px + 0.5vh);
     }
 }
 
 main {
     margin: auto;
+}
+
+@media (max-aspect-ratio: 1) {
+    body {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100vw;
+        padding: 0;
+        height: 10vh;
+
+        a {
+            display: none;
+            border: none;
+            margin: 0 auto;
+
+            h1 {
+                font-size: calc(8px + 1.2vw + 1.8vh);
+                text-decoration: underline;
+                text-decoration-thickness: calc(4px + 0.1vw);
+                margin: 0;
+                margin-top: 2.5vh;
+                min-height: 7.5vh;
+            }
+        }
+
+        .main-href {
+            position: absolute;
+            display: inline-block;
+            padding: 0;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        footer {
+            display: none;
+            margin-top: 15vh
+        }
+    }
+
+    .hamb {
+        cursor: pointer;
+        float: right;
+        position: sticky;
+        top: 50vh;
+        right: 5vw;
+        z-index: 4;
+        position: absolute;
+        display: inline-block;
+        padding: 0;
+        left: 90%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .hamb-line {
+        background: #455747;
+        display: block;
+        height: calc(1px + 0.3vh);
+        position: relative;
+        width: calc(5vw + 10px)
+    }
+
+    .hamb-line::before, .hamb-line::after {
+        background: #455747;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+    }
+
+    .hamb-line::before {
+        top: 10px;
+    }
+
+    .hamb-line::after {
+        top: -10px;
+    }
+
+    .side-menu {
+        display: none;
+    }
+
+    .side-menu:checked ~ html, body {
+        margin: 0;
+        height: 100vh;
+    }
+
+    .side-menu:checked ~ nav {
+        min-height: 100vh;
+        height: 100vh;
+        z-index: 3;
+    }
+
+    .side-menu:checked ~ nav a {
+        opacity: 100;
+        min-height: 5vh;
+        width: 70%;
+        font-size: calc(6px + 0.8vw + 1.5vh);
+        margin: 0 auto;
+        padding: 0 inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .side-menu:checked ~ nav a:nth-of-type(1) {
+        margin-top: 10vh;
+    }
+
+    .side-menu:checked ~ nav .main-menu .main-href {
+        left: 50%;
+        top: 5%;
+        transform: translateX(-50%) translateY(-50%);
+        margin-top: 0;
+    }
+
+    .side-menu:checked ~ nav footer {
+        display: block;
+        padding-bottom: 5vh;
+    }
+
+    .side-menu:checked ~ nav .hamb {
+        left: 90%;
+        top: 5%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .side-menu:checked ~ nav .hamb .hamb-line {
+        background: transparent;
+    }
+
+    .side-menu:checked ~ nav .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .side-menu:checked ~ nav .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
 }

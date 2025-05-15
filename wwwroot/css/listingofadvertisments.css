@@ -97,7 +97,11 @@
 }
 
 @media (max-aspect-ratio: 15/9) {
-  .listing {
+  .container form {
+    display: flex;
+    flex-direction: column;
+  }
+  .container .listing {
     grid-template-columns: 1fr !important;
   }
 }
