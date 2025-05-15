@@ -50,7 +50,7 @@ namespace NajdiSpolubydliciRazor.Services
                 await client.ConnectAsync(EmailServiceUri, EmailServicePort);
                 await client.AuthenticateAsync(EmailServiceUsername, EmailServicePassword);
                 await client.SendAsync(message);
-                await client.DisconnectAsync(true);
+                await client.DisconnectAsync(true).ConfigureAwait(false);
             }
             
         }

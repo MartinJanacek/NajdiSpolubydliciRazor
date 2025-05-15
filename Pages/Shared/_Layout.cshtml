@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="~/css/layout.min.css"/>
 </head>
 <body>
+    <input class="side-menu" type="checkbox" id="side-menu" />
     <nav>
-        <a href="~/Index" style="border: none;"><h1><span style="color:rgb(0, 91, 12);">Najdi</span>Spolubydlící</h1></a>
+        <div class="main-menu">
+            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+            <a href="~/Index" style="border: none;" class="main-href"><h1><span style="color:rgb(69, 98, 71);">Najdi</span>Spolubydlící</h1></a>
+        </div>
         <a asp-page="/Offer/OffersSearch">Nabídky</a>
         <a asp-page="/Demand/DemandsSearch">Poptávky</a>
         <a asp-page="/CreateAdvertisement">Vytvořit inzerát</a>
@@ -23,6 +27,8 @@
     </main>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

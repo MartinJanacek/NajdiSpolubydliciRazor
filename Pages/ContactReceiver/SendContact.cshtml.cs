@@ -44,7 +44,7 @@ namespace NajdiSpolubydliciRazor.Pages.ContactReceiver
                 await _context.SaveChangesAsync();
 
                 string url = $"{Request.Scheme}://{Request.Host}/ContactReceiver/Contact?id={newReceiver.Id}&code={code}";
-                await _emailSender.SendEmailAsync(email, "Kontakt", $"Link: <a href='{url}'>{url}</a> <br>Link je aktivní 15 minut");
+                await _emailSender.SendEmailAsync(email, "Kontakt", $"Link: <a href='{url}'>{url}</a> <br>Link je aktivní 15 minut").ConfigureAwait(false);
 
                 return Redirect("~/ContactReceiver/ContactSent");
             }

@@ -57,7 +57,7 @@ namespace NajdiSpolubydliciRazor.Pages.Offer
             await _context.AddAsync(offerEntity);
             await _context.SaveChangesAsync();
 
-            await _emailSender.SendEmailAsync(offerEntity.Email, "Ovìøení emailu", $"Kód: {oneTimeCode} <br>Kód je aktivní 15 minut");
+            await _emailSender.SendEmailAsync(offerEntity.Email, "Ovìøení emailu", $"Kód: {oneTimeCode} <br>Kód je aktivní 15 minut").ConfigureAwait(false);
             
             return RedirectToPage($"../Offer/VerifyEmail", new { id = offerEntity.Id, after = AfterVerification.Create });
         }
